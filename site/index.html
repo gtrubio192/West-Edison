@@ -4,7 +4,7 @@
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> <html> <!--<![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-scroll"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
@@ -48,7 +48,54 @@
 
 </head>
 
-<body id="home">
+<STYLE>
+
+body.no-scroll, html.no-scroll {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+body {
+    overflow-x: auto;
+    overflow-y: auto;
+}
+A {
+    COLOR: #333; TEXT-DECORATION: none
+}
+A:hover {
+    COLOR: #ccc; TEXT-DECORATION: none
+}
+#mask {
+    Z-INDEX: 9000; POSITION: fixed; BACKGROUND-COLOR: rgb(105,105,105); DISPLAY: none; TOP: 0px; LEFT: 0px; bottom: 0; right:0;
+}
+#boxes .window {
+    Z-INDEX: 9999; POSITION: fixed; PADDING-BOTTOM: 20px; PADDING-LEFT: 20px; WIDTH: 640px; PADDING-RIGHT: 20px; DISPLAY: none; HEIGHT: 385px; PADDING-TOP: 20px
+}
+#boxes #dialog {
+    PADDING-BOTTOM: 10px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 10px; WIDTH: 640px; PADDING-RIGHT: 10px; HEIGHT: 385px; PADDING-TOP: 10px
+}
+
+
+.redbox {
+    color: #F00; font-weight: bold;
+}
+.bold {
+    font-weight: bold;
+}
+</STYLE>
+
+<body class="no-scroll" id="home">
+
+<!-- Popup -->
+<div id=boxes>
+  <div id=dialog class=window>
+    <span class="redbox"> Are you over 21 years old?</span>
+      <button id="yes" class="btn"> Yes </button>
+      <button id="no" class="btn">No</button>
+    </div>
+    <div id=mask></div>
+</div>
+
 
 <!-- Preloader -->
 <div id="preloader">
@@ -413,6 +460,7 @@
   <script src="js/bootstrap.js"></script>
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/script.js"></script>
+  <script src="js/popUpTest.js"></script>
 	<!-- StikyMenu -->
 	<script src="js/stickUp.min.js"></script>
 	<script type="text/javascript">
